@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
+echo -n "-----> Custom buildback for scala"
+
 # fail fast
 set -e
 
