@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
-echo -n "-----> Custom buildback for scala"
-
 # fail fast
 set -e
 
@@ -106,6 +104,8 @@ if [ ! -f "$SBT_BINDIR"/"$SBT_JAR" ]; then
   chmod a+x sbt
 
   cd $BUILD_DIR
+else
+  echo -n "Using existing SBT"
 fi
 
 # copy in heroku sbt plugin
