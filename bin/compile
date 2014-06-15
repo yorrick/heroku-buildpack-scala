@@ -103,9 +103,12 @@ if [ ! -f "$SBT_BINDIR"/"$SBT_JAR" ]; then
 fi
 
 # recreate the sbt script each time, because SBT seems to always be installed even on newly deployed apps
+echo "-----> Creating SBT script"
+cd "$SBT_BINDIR"
 echo "#!/usr/bin/env bash" > sbt
 echo "java  -Duser.home=/app/.sbt_home -Divy.default.ivy.user.dir=/app/.sbt_home/.ivy2 -jar /app/.sbt_home/bin/$SBT_JAR \"\$@\"" >> sbt
 chmod a+x sbt
+cd $BUILD_DIR
 
 # copy in heroku sbt plugin
 HEROKU_PLUGIN="HerokuPlugin.scala"
